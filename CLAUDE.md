@@ -22,6 +22,12 @@ This document outlines the design architecture, tech stack, build instructions, 
 - **Lint Code:** `npm run lint`
 
 ## Coding Conventions
-- **TypeScript:** Strict type checking, clear interface definitions.
-- **Dynamic Theming:** Map all colors to root CSS variables (`--bg-primary`, `--text-primary`, `--accent-color`, etc.) and transition them smoothly.
-- **Performance:** Optimize high-resolution images using Next.js `<Image />` component with correct layout sizing and `priority` for above-the-fold media.
+- **TypeScript:** Strict type checking, explicit interface properties, and custom data type definitions.
+- **Hydration Safety (Next.js SSR):**
+  - **Browser APIs:** Never access `window`, `document`, or `localStorage` during initial render. Encapsulate all browser-only queries and state updates within React `useEffect()` hooks.
+  - **Extension Locks:** Keep the `<meta name="darkreader" content="NO-DARKREADER-PLUGIN" />` and `<meta name="darkreader-lock" />` headers active in the root metadata to prevent inline style injection conflicts during hydration.
+  - **Stable Date Calculations:** Avoid dynamic locale-formatting or server-to-client formatting discrepancies inside markup renders.
+- **Dynamic Theming:** Map all accent and background colors to centralized vanilla CSS variables (`--bg-primary`, `--text-primary`, `--accent-color`, etc.) and transition them smoothly on theme swaps.
+- **Performance & Media Optimization:** 
+  - Utilize Next.js `<Image />` component with custom layout bounds, correct `sizes` specs, and dynamic priority attributes above the fold.
+  - Keep spring configurations lightweight (`stiffness: 180`, `damping: 22`) for responsive carousel layouts to guarantee 60fps animations.
