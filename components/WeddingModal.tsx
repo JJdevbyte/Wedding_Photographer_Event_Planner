@@ -31,7 +31,7 @@ export default function WeddingModal({ wedding, onClose }: WeddingModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 overflow-y-auto bg-primary-bg flex justify-center custom-cursor-area"
+          className="fixed inset-0 z-50 overflow-y-auto bg-primary-bg flex justify-center"
         >
           {/* Main scrollable body */}
           <motion.div
