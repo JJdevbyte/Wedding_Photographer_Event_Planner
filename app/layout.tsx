@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     description: "Bespoke visual storytelling and cinematic event orchestration.",
     type: "website",
   },
+  other: {
+    "darkreader-lock": "true",
+    darkreader: "NO-DARKREADER-PLUGIN",
+  },
 };
 
 export default function RootLayout({
