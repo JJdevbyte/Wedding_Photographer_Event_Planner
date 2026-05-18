@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 1. Classic Ivory & Linen (Default) */
+  --bg-primary: 36 29% 97%;      /* #fbf9f4 */
+  --text-primary: 0 0% 11%;      /* #1c1c1c */
+  --accent-color: 45 60% 50%;    /* #d4af37 */
+  --accent-hover: 45 60% 40%;    /* #c09d30 */
+  --accent-muted: 45 30% 92%;    /* soft gold shadow */
+  --border-theme: 0 0% 11% / 0.12;
+  --card-bg: 0 0% 100%;          /* #ffffff */
+  --badge-bg: 0 0% 11%;
+  --badge-text: 36 29% 97%;
+  --selection-bg: 45 60% 88%;
+  --input-bg: 0 0% 100% / 0.6;
+}
+
+html[data-theme="midnight"] {
+  /* 2. Midnight Glamour */
+  --bg-primary: 224 18% 7%;      /* #0d0e12 */
+  --text-primary: 210 20% 96%;   /* #f3f4f6 */
+  --accent-color: 35 44% 64%;    /* #c5a880 */
+  --accent-hover: 35 44% 54%;    /* #b29369 */
+  --accent-muted: 35 25% 15%;    /* soft dark copper */
+  --border-theme: 210 20% 96% / 0.15;
+  --card-bg: 224 18% 11%;        /* slightly lighter slate */
+  --badge-bg: 210 20% 96%;
+  --badge-text: 224 18% 7%;
+  --selection-bg: 35 44% 28%;
+  --input-bg: 224 18% 12% / 0.8;
+}
+
+html[data-theme="sage"] {
+  /* 3. Ethereal Sage */
+  --bg-primary: 80 10% 92%;      /* #ebede4 */
+  --text-primary: 125 20% 14%;   /* #1d2c1e */
+  --accent-color: 3 38% 72%;     /* #d1a19d */
+  --accent-hover: 3 38% 62%;     /* #c28d88 */
+  --accent-muted: 3 20% 85%;
+  --border-theme: 125 20% 14% / 0.12;
+  --card-bg: 0 0% 100%;
+  --badge-bg: 125 20% 14%;
+  --badge-text: 80 10% 92%;
+  --selection-bg: 3 38% 85%;
+  --input-bg: 0 0% 100% / 0.6;
+}
+
+html[data-theme="terracotta"] {
+  /* 4. Sunset Terracotta */
+  --bg-primary: 14 47% 49%;     /* #b85d43 */
+  --text-primary: 41 50% 90%;    /* #f5ebd5 */
+  --accent-color: 15 54% 85%;    /* #ecc2b6 */
+  --accent-hover: 15 54% 75%;    /* #deb0a3 */
+  --accent-muted: 14 30% 25%;
+  --border-theme: 41 50% 90% / 0.2;
+  --card-bg: 14 47% 42%;         /* dark terracotta shadow */
+  --badge-bg: 41 50% 90%;
+  --badge-text: 14 47% 49%;
+  --selection-bg: 15 54% 38%;
+  --input-bg: 14 47% 44% / 0.8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(var(--bg-primary));
+  color: hsl(var(--text-primary));
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: background-color 600ms cubic-bezier(0.4, 0, 0.2, 1), 
+              color 600ms cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+}
+
+::selection {
+  background-color: hsl(var(--selection-bg));
+  color: hsl(var(--text-primary));
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--bg-primary));
+  transition: background 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--text-primary) / 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--text-primary) / 0.3);
+}
+
+/* Hide default cursor on desktop for custom interactive layouts */
+@media (min-width: 1024px) {
+  .custom-cursor-area {
+    cursor: none;
+  }
+}
+
+/* Layout utilities */
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+/* Custom lens flare shimmer */
+.lens-flare-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.lens-flare-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.1) 48%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.1) 52%,
+    transparent 55%
+  );
+  transform: translate(-100%, -100%) rotate(45deg);
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+}
+
+.lens-flare-hover:hover::after {
+  transform: translate(100%, 100%) rotate(45deg);
+}
