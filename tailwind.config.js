@@ -8,20 +8,20 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          bg: "var(--bg-primary)",
-          text: "var(--text-primary)",
+          bg: "hsl(var(--bg-primary) / <alpha-value>)",
+          text: "hsl(var(--text-primary) / <alpha-value>)",
         },
         accent: {
-          DEFAULT: "var(--accent-color)",
-          hover: "var(--accent-hover)",
-          muted: "var(--accent-muted)",
+          DEFAULT: "hsl(var(--accent-color) / <alpha-value>)",
+          hover: "hsl(var(--accent-hover) / <alpha-value>)",
+          muted: "hsl(var(--accent-muted) / <alpha-value>)",
         },
         theme: {
-          border: "var(--border-theme)",
-          card: "var(--card-bg)",
-          badgeBg: "var(--badge-bg)",
-          badgeText: "var(--badge-text)",
-          selection: "var(--selection-bg)",
+          border: "hsl(var(--border-theme))",
+          card: "hsl(var(--card-bg) / <alpha-value>)",
+          badgeBg: "hsl(var(--badge-bg) / <alpha-value>)",
+          badgeText: "hsl(var(--badge-text) / <alpha-value>)",
+          selection: "hsl(var(--selection-bg) / <alpha-value>)",
         }
       },
       fontFamily: {
