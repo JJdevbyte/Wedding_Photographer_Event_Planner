@@ -196,6 +196,7 @@ function InteractiveCard({
         rotate: isTop && !isDeckHovered ? rotateDrag : rotMult,
         opacity: isTop ? opacityDrag : 1,
         zIndex: index + (isHovered ? 25 : 10),
+        willChange: "transform",
       }}
       animate={{
         x: offXMult,
@@ -207,7 +208,7 @@ function InteractiveCard({
           : 0.94 + index * 0.015,
         transition: { type: "spring", stiffness: 220, damping: 19 },
       }}
-      className={`absolute w-full h-full rounded-[2.5rem] bg-theme-card p-4 shadow-2xl border border-primary-text/10 flex flex-col justify-between select-none overflow-hidden transition-all duration-300 ${
+      className={`absolute w-full h-full rounded-[2.5rem] bg-theme-card p-4 shadow-2xl border border-primary-text/10 flex flex-col justify-between select-none overflow-hidden transition-colors duration-500 ${
         isTop || isDeckHovered ? "cursor-grab active:cursor-grabbing" : "pointer-events-auto"
       }`}
     >

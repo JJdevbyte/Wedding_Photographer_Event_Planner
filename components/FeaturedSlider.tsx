@@ -178,6 +178,7 @@ export default function FeaturedSlider({ onSelectWedding }: FeaturedSliderProps)
                   scale,
                   opacity,
                 }}
+                style={{ willChange: "transform" }}
                 transition={{ type: "spring", stiffness: 220, damping: 20 }}
                 onClick={() => {
                   if (isActive) {
@@ -186,7 +187,7 @@ export default function FeaturedSlider({ onSelectWedding }: FeaturedSliderProps)
                     setActiveIndex(index);
                   }
                 }}
-                className={`w-[290px] sm:w-[320px] h-[400px] flex-shrink-0 bg-theme-card rounded-[2.5rem] p-4 border border-primary-text/10 shadow-xl flex flex-col justify-between relative overflow-hidden transition-all duration-300 group`}
+                className={`w-[290px] sm:w-[320px] h-[400px] flex-shrink-0 bg-theme-card rounded-[2.5rem] p-4 border border-primary-text/10 shadow-xl flex flex-col justify-between relative overflow-hidden transition-colors duration-500 group`}
               >
                 {/* Image panel */}
                 <div className="relative w-full h-[72%] rounded-[1.75rem] overflow-hidden bg-primary-bg border border-primary-text/5">
